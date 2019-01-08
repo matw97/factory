@@ -1,10 +1,9 @@
 package com.mateuszw;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.EnumMap;
 
 public class ShapeFactory {
-    private static final Map<ShapeType, Shape> shapes = new HashMap<ShapeType, Shape>();
+    private static final EnumMap<ShapeType, Shape> shapes = new EnumMap<>(ShapeType.class);
 
     public Shape getShape(ShapeType shapeType) {
         return shapes.get(shapeType);
