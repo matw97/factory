@@ -6,7 +6,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class ShapeFactoryTest {
-
     private static ShapeFactory shapeFactory;
     private static Shape shape;
 
@@ -16,23 +15,23 @@ public class ShapeFactoryTest {
     }
 
     @Test
+    public void shouldReturnCircle() {
+        shape = shapeFactory.getShape(ShapeType.CIRCLE);
+        assertTrue(shape instanceof Circle);
+        assertEquals(shape.draw(), "Drawing circle");
+    }
+
+    @Test
     public void shouldReturnRectangle() {
-        shape = shapeFactory.getShape("rectangle");
+        shape = shapeFactory.getShape(ShapeType.RECTANGLE);
         assertTrue(shape instanceof Rectangle);
         assertEquals(shape.draw(), "Drawing rectangle");
     }
 
     @Test
     public void shouldReturnSquare() {
-        shape = shapeFactory.getShape("square");
+        shape = shapeFactory.getShape(ShapeType.SQUARE);
         assertTrue(shape instanceof Square);
         assertEquals(shape.draw(), "Drawing square");
-    }
-
-    @Test
-    public void shouldReturnCircle() {
-        shape = shapeFactory.getShape("circle");
-        assertTrue(shape instanceof Circle);
-        assertEquals(shape.draw(), "Drawing circle");
     }
 }
